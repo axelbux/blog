@@ -45,3 +45,6 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+- uses: actions/setup-node@v4
+  with:
+    node-version: '22' # Укажите актуальную LTS-версию, например 22.x
