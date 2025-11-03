@@ -2,7 +2,7 @@ name: Deploy Quartz site to Pages
 
 on:
   push:
-    branches: [main]
+    branches: [v4]
   workflow_dispatch:
 
 permissions:
