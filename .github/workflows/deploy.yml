@@ -2,8 +2,11 @@ name: Deploy Quartz site to Pages
 
 on:
   push:
-    branches: [v4]  # ← ИЗМЕНИЛИ: было [main], стало [v4]
+    branches: [v4]
   workflow_dispatch:
+
+env:
+  THEME_NAME: things-3
 
 permissions:
   contents: read
@@ -22,21 +25,24 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          
+
+      - name: Fetch Quartz Theme
+        run: curl -s -S https://raw.githubusercontent.com/saberzero1/quartz-themes/master/action.sh | bash -s -- $THEME_NAME
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-          
+
       - name: Install dependencies
         run: npm ci
-          
+
       - name: Build Quartz
         run: npx quartz build
-          
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
-          
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
