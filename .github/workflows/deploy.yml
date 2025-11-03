@@ -2,7 +2,7 @@ name: Deploy Quartz site to Pages
 
 on:
   push:
-    branches: [main]
+    branches: [v4]  # ← ИЗМЕНИЛИ: было [main], стало [v4]
   workflow_dispatch:
 
 permissions:
@@ -21,12 +21,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Полная история для правильных дат
+          fetch-depth: 0
           
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'  # Важно: Quartz требует Node.js 22+
+          node-version: '22'
           
       - name: Install dependencies
         run: npm ci
@@ -40,7 +40,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: public  # Папка с собранным сайтом
+          path: public
 
   deploy:
     environment:
