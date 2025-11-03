@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 env:
-  THEME_NAME: things-3
+  THEME_NAME: things
 
 permissions:
   contents: read
