@@ -15,7 +15,7 @@ const config: QuartzConfig = {
     analytics: {
       provider: "yandex",
     },
-    locale: "en-US",
+    locale: "ru-RU",
     baseUrl: "quartz.jzhao.xyz",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "modified",
