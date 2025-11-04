@@ -1,7 +1,7 @@
 # publish.ps1 — финальная версия с поддержкой [[file|text]] и всех ресурсов
 $ErrorActionPreference = "Stop"
 
-$MainVault = "C:\Users\Axel Bux\Документы\Мои базы Obsidian"
+$MainVault = "C:\Users\Axel Bux\Документы\MyObsidian"
 $ContentDir = "C:\Users\Axel Bux\Документы\GitHub\blog\content"
 $RepoPath = "C:\Users\Axel Bux\Документы\GitHub\blog"
 
