@@ -12,3 +12,15 @@ a.internal.tag-link {
 .explorer-content ul li>a {
     display: block;
 	}
+	
+	@media (min-width: 800px) and (max-width:1200px) {
+    .page>#quartz-body .center,.page>#quartz-body footer {
+        /* margin-right:0 */
+    }
+}
+
+@media (max-width: 800px) {
+    .page>#quartz-body .center,.page>#quartz-body footer {
+        /* margin-left:0; *//* margin-right:0; */
+    }
+}
