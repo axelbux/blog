@@ -288,11 +288,11 @@ a {
       margin-left: auto;
       margin-right: auto;
       @media all and ($tablet) {
-        margin-right: 0;
+        /* margin-right: 0; */
       }
       @media all and ($mobile) {
-        margin-right: 0;
-        margin-left: 0;
+        /* margin-right: 0; */
+       /* margin-left: 0; */
       }
     }
     & footer {
