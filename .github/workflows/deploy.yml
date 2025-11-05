@@ -5,8 +5,8 @@ on:
     branches: [v4]
   workflow_dispatch:
 
-env:
-  THEME_NAME: things
+#env:
+  #THEME_NAME: things
 
 permissions:
   contents: read
@@ -26,8 +26,8 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Fetch Quartz Theme
-        run: curl -s -S https://raw.githubusercontent.com/saberzero1/quartz-themes/master/action.sh | bash -s -- $THEME_NAME
+      #- name: Fetch Quartz Theme
+        #run: curl -s -S https://raw.githubusercontent.com/saberzero1/quartz-themes/master/action.sh | bash -s -- $THEME_NAME
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
