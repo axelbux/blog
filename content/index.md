@@ -13,7 +13,7 @@ title: Цифровой сад заметок
 
 > [!tip]- QR code на Telegram
 > 
-> ![Telegram|660](all_files/Входящие/20251105230202.png)
+> ![Telegram](all_files/Входящие/telegram.png)
 > 
 
 
