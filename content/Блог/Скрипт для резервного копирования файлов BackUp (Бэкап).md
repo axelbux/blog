@@ -1,6 +1,6 @@
 ---
 Создан: 2026-02-28T12:49
-Изменен: 2026-02-28T13:06
+Изменен: 2026-03-01T10:51
 Категория: Источник
 Корень:
   - "[[ТЕХНОЛОГИИ]]"
@@ -239,23 +239,16 @@ read_success_counter
 log_line "START: Начато резервное копирование на ${DISK_NAME}"
 
 if ! mountpoint -q "$MOUNT_POINT"; then
-  log_line "ERROR: Точка монтирования ${MOUNT_POINT} недоступна. Бэкап пропущен."
-  register_error "$LINE_NO" "Точка монтирования недоступна"
-  RESULT="С ОШИБКАМИ"
-  RSYNC_EXIT=1
-  SUCCESS_COUNT=0
-  write_success_counter
+  log_line "INFO: Диск ${DISK_NAME} не смонтирован. Бэкап пропущен (это не ошибка)."
+  # Можно вообще не трогать SUCCESS_COUNT, чтобы статистика оставалась как есть
   END_TIME=$(date +"%Y-%m-%d %H:%M:%S")
   log_line "SUMMARY: Дата/время начала: ${START_TIME}"
   log_line "SUMMARY: Дата/время завершения: ${END_TIME}"
-  log_line "SUMMARY: Результат: ${RESULT}"
-  log_line "SUMMARY: Ошибок: ${#SESSION_ERRORS[@]}"
-  for err in "${SESSION_ERRORS[@]}"; do
-    log_line "SUMMARY: ${err}"
-  done
-  echo "${END_TIME}|С ОШИБКАМИ|Диск не смонтирован" > "$STATUS"
-  send_notify "Резервное копирование" "Ошибка: диск ${DISK_NAME} не смонтирован"
-  exit 1
+  log_line "SUMMARY: Результат: ПРОПУЩЕНО (диск не смонтирован)"
+  log_line "SUMMARY: Ошибок: 0"
+  echo "${END_TIME}|ПРОПУЩЕНО|Диск не смонтирован (съёмный, это норм)" > "$STATUS"
+  # Никаких уведомлений и код завершения 0
+  exit 0
 fi
 
 log_line "INFO: Точка монтирования ${MOUNT_POINT} доступна"
